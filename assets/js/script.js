@@ -1,4 +1,5 @@
-var hours = document.getElementById('.time-block');
+var hours = document.getElementById('time-block');
+var saveBtn = document.getElementsByClassName('button.col-1.saveBtn');
 
 var currentDay = moment();
 $("#currentDay").text(currentDay.format('dddd, MMMM Do'));
@@ -20,18 +21,10 @@ function timeColor() {
 }
 timeColor();
 
-// function timeof(); {
-//   for (var i = 0; i < hours.length; i++) {
-//     var thisHour = hours[i].dataset.hour;
-//     if (thisHour < hourNow) {
-//       hours[i].classList.add(".past");
-//     } else if (thisHour === hourNow) {
-//       hours[i].classList.add(".present");
-//     } else (thisHour > hourNow); {
-//       hours[i].classList.add(".future");
-//     }
-//   }
-// }
-// timeOf();
+saveBtn.onclick = function (event) {
+  console.log('dingus')
+  event.preventDefault();
 
-
+  var eventInfo = $(this).siblings("textarea").value
+  localStorage.setItem("textarea", eventInfo);
+}
